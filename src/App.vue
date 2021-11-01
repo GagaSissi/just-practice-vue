@@ -1,23 +1,17 @@
 <template>
   <div>
-    <strong>{{ name_first }}</strong
-    >,
-    {{ age + " " + gender + "," }}
-    {{ name_last }}
-    <hr />
-    {{ fullName }}
-    <hr />
-    {{ `${name_first} ${name_last}, ist ${age} Jahre jung.` }}
-    <hr />
-    {{ age >= 18 ? "volljährig" : "nicht volljärig" }}
-    <div class="age">
-      {{ age }}.
-      <span v-if="age < 18">Du bist unter 18.</span>
-      <span v-else-if="age == 18">Super, du bist volljährig</span>
-      <span v-else>Über 18 Jahre.</span>
-    </div>
-    <!-- Rendering bei v-show nur am Anfang der Seite. -->
-    <!-- <div v-show="name_first == 'Cecilia'"></div> -->
+    Hi,{{ name_first }}.
+    <ul>
+      <li>Berlin</li>
+      <li>Hamburg</li>
+      <li>Frankfurt</li>
+    </ul>
+    <ul>
+      <li v-for="(city, index) in cities" v-bind:key="city.id">
+        {{ ++index }}. {{ city.name }}
+      </li>
+    </ul>
+    <p v-for="n in 10" v-bind:key="n">{{ n }}</p>
   </div>
 </template>
 
@@ -26,9 +20,11 @@ export default {
   name: "App",
   data: () => ({
     name_first: "Cecilia",
-    name_last: "Strüber",
-    age: 38,
-    gender: "female",
+    cities: [
+      { id: 1, name: "Berlin" },
+      { id: 2, name: "Hamburg" },
+      { id: 3, name: "Frankfurt" },
+    ],
   }),
   computed: {
     fullName() {
