@@ -1,30 +1,21 @@
 <template>
   <div>
     Hi,{{ name_first }}.
-    <input type="text" name="abc" value="xyz" @keyup="test2" />
-    <a href="?seite=23" @click.right.prevent="test">Gehe zu Seite 23</a>
-    <!-- .page-down
-    .enter
-    .tab
-    .delete
-    .esc
-    .space
-
-    .ctrl
-    .alt
-    .shift
-    .meta.exact
-
-@keyup.alt.67 
-
-event modifier-->
-
+    <navigation-link url="https://github.com/GagaSissi/just-practice-vue">
+      <template v-slot:image>
+        <img
+          src="https://d10s7cl4nxfjv3.cloudfront.net/wp-content/uploads/sites/2/2019/09/vuejs-schulung-inhouse-logo.png"
+        />
+      </template>
+      >Zum Profil</navigation-link
+    >
     <TodoList />
   </div>
 </template>
 
 <script>
 import TodoList from "./components/TodoList";
+import NavigationLink from "./components/NavigationLink";
 export default {
   name: "App",
   data: () => ({
@@ -32,6 +23,7 @@ export default {
   }),
   components: {
     TodoList,
+    NavigationLink,
   },
   methods: {
     test() {
@@ -45,6 +37,10 @@ export default {
 </script>
 
 <style>
+img {
+  height: 20px;
+}
+
 .finishedTask {
   text-decoration: line-through;
 }
