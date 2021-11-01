@@ -10,6 +10,14 @@
     {{ `${name_first} ${name_last}, ist ${age} Jahre jung.` }}
     <hr />
     {{ age >= 18 ? "volljährig" : "nicht volljärig" }}
+    <div class="age">
+      {{ age }}.
+      <span v-if="age < 18">Du bist unter 18.</span>
+      <span v-else-if="age == 18">Super, du bist volljährig</span>
+      <span v-else>Über 18 Jahre.</span>
+    </div>
+    <!-- Rendering bei v-show nur am Anfang der Seite. -->
+    <!-- <div v-show="name_first == 'Cecilia'"></div> -->
   </div>
 </template>
 
@@ -31,6 +39,12 @@ export default {
 </script>
 
 <style>
+.age {
+  border: 1px solid red;
+  margin: 5px;
+  padding: 10px;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
