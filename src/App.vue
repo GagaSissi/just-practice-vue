@@ -1,33 +1,21 @@
 <template>
   <div>
     Hi,{{ name_first }}.
-    <ul>
-      <li
-        v-for="(todo, index) in todos"
-        :key="todo.id"
-        :class="{ finishedTask: todo.finished }"
-      >
-        <input type="checkbox" :checked="todo.finished" />
-
-        <a href="'?id='+todo.id">show</a> {{ ++index }}. {{ todo.name }}
-      </li>
-    </ul>
+    <TodoList />
     <button @click="test">Test</button>
   </div>
 </template>
 
 <script>
+import TodoList from "./components/TodoList";
 export default {
   name: "App",
   data: () => ({
     name_first: "Cecilia",
-    todos: [
-      { id: 1, finished: false, name: "Vue JS lernen" },
-      { id: 2, finished: false, name: "Schwarze Tonne rein holen" },
-      { id: 3, finished: false, name: "Staubsauger starten" },
-      { id: 4, finished: true, name: "Büro umbauen" },
-    ],
   }),
+  components: {
+    TodoList,
+  },
 };
 </script>
 
