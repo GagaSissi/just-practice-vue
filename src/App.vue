@@ -1,6 +1,24 @@
 <template>
   <div>
     Hi,{{ name_first }}.
+    <input type="text" name="abc" value="xyz" @keyup="test2" />
+    <a href="?seite=23" @click.right.prevent="test">Gehe zu Seite 23</a>
+    <!-- .page-down
+    .enter
+    .tab
+    .delete
+    .esc
+    .space
+
+    .ctrl
+    .alt
+    .shift
+    .meta.exact
+
+@keyup.alt.67 
+
+event modifier-->
+
     <TodoList />
   </div>
 </template>
@@ -14,6 +32,14 @@ export default {
   }),
   components: {
     TodoList,
+  },
+  methods: {
+    test() {
+      alert("heyho lets go");
+    },
+    test2() {
+      alert("adios");
+    },
   },
 };
 </script>
