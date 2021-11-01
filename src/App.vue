@@ -2,7 +2,6 @@
   <div>
     Hi,{{ name_first }}.
     <TodoList />
-    <button @click="test">Test</button>
   </div>
 </template>
 

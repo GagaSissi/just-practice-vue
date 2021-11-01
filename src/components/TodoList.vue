@@ -1,6 +1,11 @@
 <template>
   <ul>
-    <TodoListItems v-for="todo in todos" :key="todo.id" :item="todo" />
+    <TodoListItems
+      v-for="todo in todos"
+      :key="todo.id"
+      :item="todo"
+      @toggle="toggleListItem"
+    />
   </ul>
 </template>
 
@@ -18,6 +23,11 @@ export default {
   name: "TodoList",
   components: {
     TodoListItems,
+  },
+  methods: {
+    toggleListItem(el) {
+      el.finished = !el.finished;
+    },
   },
 };
 </script>
